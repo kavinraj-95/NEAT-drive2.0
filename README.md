@@ -2,7 +2,7 @@
 
 This project is an updated version of the original NEAT-drive, a project where a car learns to drive on a track using the NEAT (NeuroEvolution of Augmenting Topologies) algorithm. This new version introduces more realistic car physics, simulating physical movements like acceleration, friction, and traction, making the driving behavior more akin to a real-world car.
 
-![Output Video](NEAT-drive2_0-output.mp4)
+![Output Video](NEAT-drive2_0-output.gif)
 
 ## How it Works
 
