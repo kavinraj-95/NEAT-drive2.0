@@ -15,7 +15,7 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Python Drift Car")
 RAY_COUNT = 9
 RAY_LENGTH = 250
-MAX_STEPS_PER_CAR = 40000
+MAX_STEPS_PER_CAR = 4000
 TILE_SIZE = 20
 STALL_CHECK_INTERVAL = 120
 WHITE = (255, 255, 255)
@@ -295,17 +295,17 @@ def run(config_file):
         winner = stats.best_genome()
         print('\nBest genome (from loaded checkpoint):\n{!s}'.format(winner))
     print("\nSaving final best network...")
-    visualize.draw_net(config, winner, True, node_names=node_names, filename="winner-net.gv")
+    visualize.draw_net(config, winner, True, node_names=node_names, filename="../results/winner-net.gv")
     with open("winner.pkl", "wb") as f:
         pickle.dump(winner, f)
-    print("Winner saved to winner.pkl")
+    print("Winner saved to ../results/winner.pkl")
 
 def run_winner(config_file):
     config = neat.Config(neat.DefaultGenome, neat.DefaultReproduction, neat.DefaultSpeciesSet, neat.DefaultStagnation, config_file)
-    if not os.path.exists("winner.pkl"):
+    if not os.path.exists("../results/winner.pkl"):
         print("Error: 'winner.pkl' not found. Train first to create it.")
         return
-    with open("winner.pkl", "rb") as f:
+    with open("../results/winner.pkl", "rb") as f:
         winner = pickle.load(f)
     net = neat.nn.FeedForwardNetwork.create(winner, config)
     car = Car(START_POS[0], START_POS[1])
